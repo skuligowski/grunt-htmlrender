@@ -32,7 +32,11 @@ module.exports = function(grunt) {
     htmlrender: {
       default_options: {
         options: {
-          src: ['test/**/*.html']
+          src: ['test/**/*.html'],
+          vars: {
+            one: 'Test12',
+            fn: function() { return 'some'; }
+          }
         },
         files: {
           'dist/index.html': 'test/a.html'
