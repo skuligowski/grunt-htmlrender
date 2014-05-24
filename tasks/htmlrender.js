@@ -126,8 +126,12 @@ module.exports = function(grunt) {
     }
 
     this.files.forEach(function(f) {
-      if (f.src.length !== 1) {
+      if (f.src.length > 1) {
         grunt.fail.fatal('Only one file can be rendered, ' + f.orig.src + ' found.');
+      }
+
+      if (f.src.length === 0) {
+        grunt.fail.fatal(f.orig.src + ' not found!');
       }
 
       grunt.file.write(f.dest, renderPartial(f.orig.src[0]));
