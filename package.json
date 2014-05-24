@@ -1,0 +1,40 @@
+{
+  "name": "grunt-htmlrender",
+  "description": "Renders html by including its partials",
+  "version": "0.1.0",
+  "homepage": "https://github.com/skuligowski/grunt-htmlrender",
+  "author": {
+    "name": "Sebastian Kuligowski"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/skuligowski/grunt-htmlrender"
+  },
+  "bugs": {
+    "url": "https://github.com/skuligowski/grunt-htmlrender/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/skuligowski/grunt-htmlrender/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
