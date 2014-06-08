@@ -134,8 +134,8 @@ module.exports = function(grunt) {
         grunt.fail.fatal(f.orig.src + ' not found!');
       }
 
-      grunt.file.write(f.dest, renderPartial(f.orig.src[0]));
-      grunt.log.ok(f.orig.src[0] + ' was successfuly rendered.');
+      grunt.file.write(f.dest, renderPartial(f.src[0]));
+      grunt.log.ok(f.src[0] + ' was successfuly rendered.');
     });
   });
 };
