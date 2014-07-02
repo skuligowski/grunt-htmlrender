@@ -119,7 +119,7 @@ module.exports = function(grunt) {
       partialsCache = {};
     }
 
-    var partialsChanged = refreshPartials(grunt.file.expand(options.src));
+    var partialsChanged = refreshPartials(_.map(grunt.file.expand(options.src), path.normalize));
     if (!partialsChanged) {
       grunt.log.ok('Nothing changed, exiting...');
       return;
@@ -134,8 +134,9 @@ module.exports = function(grunt) {
         grunt.fail.fatal(f.orig.src + ' not found!');
       }
 
-      grunt.file.write(f.dest, renderPartial(f.src[0]));
-      grunt.log.ok(f.src[0] + ' was successfuly rendered.');
+      var fileToRender = path.normalize(f.src[0]);
+      grunt.file.write(path.normalize(f.dest), renderPartial(fileToRender));
+      grunt.log.ok(fileToRender + ' was successfuly rendered.');
     });
   });
 };
