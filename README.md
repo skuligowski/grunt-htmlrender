@@ -3,7 +3,7 @@
 > Renders html by including its partials
 
 ## About
-Organize your project by creating small partials (html files). Then compose your output html file by including those partials into that one. This is the common way how a server-side templating engines (eg. PHP, JSP, Freemarker etc.) work. Now the same thing you can do on the client side. 
+Organize your project by creating small partials (html files). Then include those partials into the one html output file by using `<%include src="path/to/partial.html"%>` macro. This is the common way how a server-side templating engines  work (eg. PHP, JSP, Freemarker etc.). Now the same thing you can do on the client side, just after saving your document.
 
 ## Getting started
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
@@ -51,7 +51,7 @@ All partials that should be used to compose output html file.
 Type: `Object`
 Default value: `{}`
 
-Variaiables that you can put inside your partial files. After rendering output html those variables will be interpolated with values from the object.
+Variables that you can put inside your partial files: `<%=myVariable%>`. After rendering the output html those variables will be interpolated with the values from defined `vars` object.
 
 ```js
 vars: {
@@ -71,7 +71,7 @@ will generate:
 
 The interpolation of variables is usually used to replace some paths inside of the html file (such as scripts path, css path etc).
 
-Instead of value you can use a function for the interpolation process:
+Instead of any hardcoded value you can use a function for the interpolation process:
 
 ```js
 vars: {
@@ -84,40 +84,52 @@ vars: {
 #### options.files
 Type: `List`
 
-The list of output files that the task should generate in their target directories.
+The list of output files that this task should generate in their destinations.
 
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, there is `index.html` file and one partial file `tpl/partial.html`. 
+
+```html
+<div>Hello world</div>
+<div>
+  <%include src="tpl/partal.html"%>
+</div>
+```
+
+```html
+<div class="partial">Hello, I'm the partial</div>
+```
 
 ```js
 grunt.initConfig({
   htmlrender: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+    build: {
+      options: {
+        src: ['tpl/*.html']
+      },
+      files: [{
+        expand: true,
+        cwd: 'src',
+        src: ['index.html'],
+        dest: 'dist',
+        ext: '.html'
+      }]
     },
   },
 });
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+After interpolation you will find `dist/index.html` with the following content:
 
-```js
-grunt.initConfig({
-  htmlrender: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
+```html
+<div>Hello world</div>
+<div>
+  <div class="partial">Hello, I'm the partial</div>
+</div>
 ```
+
 
 ## Release History
 _(Nothing yet)_
