@@ -3,7 +3,7 @@
 > Renders html by including its partials
 
 ## About
-Organize your project by creating small partials (html files). Then compose your output html file by including those partials into that one. This is the common way how server-side templating engines (eg. PHP, JSP, Freemarker etc.) work. Now the same thing you can do on the client side. 
+Organize your project by creating small partials (html files). Then compose your output html file by including those partials into that one. This is the common way how a server-side templating engines (eg. PHP, JSP, Freemarker etc.) work. Now the same thing you can do on the client side. 
 
 ## Getting started
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
@@ -71,6 +71,20 @@ will generate:
 
 The interpolation of variables is usually used to replace some paths inside of the html file (such as scripts path, css path etc).
 
+Instead of value you can use a function for the interpolation process:
+
+```js
+vars: {
+  lastChange: function() {
+    return formatCurrentDate(new Date());
+  }
+}
+```
+
+#### options.files
+Type: `List`
+
+The list of output files that the task should generate in their target directories.
 
 ### Usage Examples
 
@@ -104,9 +118,6 @@ grunt.initConfig({
   },
 });
 ```
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
 _(Nothing yet)_
