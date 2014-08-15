@@ -89,8 +89,9 @@ The list of output files that this task should generate in their destinations.
 ### Usage Examples
 
 #### Default Options
-In this example, there is `index.html` file and one partial file `tpl/partial.html`. 
+In this example, there is `src/index.html` file and one partial file `src/tpl/partial.html`. 
 
+src/index.html
 ```html
 <div>Hello world</div>
 <div>
@@ -98,16 +99,18 @@ In this example, there is `index.html` file and one partial file `tpl/partial.ht
 </div>
 ```
 
+src/tpl/partial.html
 ```html
 <div class="partial">Hello, I'm the partial</div>
 ```
 
+dist/index.html
 ```js
 grunt.initConfig({
   htmlrender: {
     build: {
       options: {
-        src: ['tpl/*.html']
+        src: ['src/tpl/*.html']
       },
       files: [{
         expand: true,
