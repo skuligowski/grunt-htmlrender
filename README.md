@@ -2,15 +2,10 @@
 
 > Renders html by including its partials
 
-## Getting Started
-This plugin requires Grunt `~0.4.5`
+## About
+Organize your project by creating small partials (html files). Then compose your output html file by including those partials into that one. This is the common way how server-side templating engines (eg. PHP, JSP, Freemarker etc.) work. Now the same thing you can do on the client side. 
 
-If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
-
-```shell
-npm install grunt-htmlrender --save-dev
-```
-
+## Getting started
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
@@ -25,11 +20,20 @@ In your project's Gruntfile, add a section named `htmlrender` to the data object
 ```js
 grunt.initConfig({
   htmlrender: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
+    build: {
+      options: {
+        src: ['src/**/*.html'],
+        vars: {
+          myVariable: 'someValue'
+        }
+      },
+      files: [{
+        expand: true,
+        cwd: 'src',
+        src: ['*.html'],
+        dest: 'dist',
+        ext: '.html'
+      }]
     },
   },
 });
@@ -37,17 +41,36 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.src
 Type: `String`
-Default value: `',  '`
+Default value: `*.html`
 
-A string value that is used to do something with whatever.
+All partials that should be used to compose output html file.
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+#### options.vars
+Type: `Object`
+Default value: `{}`
 
-A string value that is used to do something else with whatever else.
+Variaiables that you can put inside your partial files. After rendering output html those variables will be interpolated with values from the object.
+
+```js
+vars: {
+  myVariable: 'someValue'
+}
+```
+
+```html
+<div><%=myVariable%></div>
+```
+
+will generate:
+
+```html
+<div>someValue</div>
+```
+
+The interpolation of variables is usually used to replace some paths inside of the html file (such as scripts path, css path etc).
+
 
 ### Usage Examples
 
