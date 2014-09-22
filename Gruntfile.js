@@ -69,6 +69,19 @@ module.exports = function(grunt) {
           'tmp/include_nested/nested_partials.html': 'test/fixtures/include_nested/nested_partials.html',
           'tmp/include_nested/include_back.html': 'test/fixtures/include_nested/include_back.html'
         }
+      },
+      render_multiple: {
+        options: {
+          src: ['test/fixtures/render_multiple/**/*.html'],
+          vars: {}
+        },
+        files: [{
+            expand: true,
+            cwd: 'test/fixtures/render_multiple',
+            src: ['*.html'],
+            dest: 'tmp/render_multiple',
+            ext: '.html'
+        }]
       }
     },
 

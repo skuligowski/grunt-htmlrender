@@ -58,5 +58,11 @@ exports.htmlrender = {
       .assert('nested_partials.html', 'should include partials that include other partials')
       .assert('include_back.html', 'should include partials that are relative')
       .done();    
+  },
+  render_multiple: function(test) {
+    begin(test, 'render_multiple')
+      .assert('index1.html', 'one of two files that should be generated')
+      .assert('index2.html', 'the second of two files that should be generated')
+      .done();    
   }
 };
