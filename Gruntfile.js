@@ -41,8 +41,8 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'tmp/render_vars/vars.html': 'test/fixtures/render_vars/vars.html',
-          'tmp/render_vars/fn.html': 'test/fixtures/render_vars/fn.html'
+          'tmp/render_vars/render_vars.html': 'test/fixtures/render_vars/render_vars.html',
+          'tmp/render_vars/render_fn.html': 'test/fixtures/render_vars/render_fn.html'
         }
       },
       include: {
@@ -51,7 +51,18 @@ module.exports = function(grunt) {
           vars: {}
         },
         files: {
-          'tmp/include/include_flat.html': 'test/fixtures/include/include_flat.html'
+          'tmp/include/include_flat.html': 'test/fixtures/include/include_flat.html',
+          'tmp/include/include_relative.html': 'test/fixtures/include/include_relative.html',
+          'tmp/include/include_multiple.html': 'test/fixtures/include/include_multiple.html'
+        }
+      },
+      include_nested: {
+        options: {
+          src: ['test/fixtures/include_nested/**/*.html'],
+          vars: {}
+        },
+        files: {
+          'tmp/include_nested/nested_partials.html': 'test/fixtures/include_nested/nested_partials.html'
         }
       }
     },

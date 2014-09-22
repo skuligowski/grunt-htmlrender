@@ -40,13 +40,20 @@ var begin = function(test, fixture) {
 exports.htmlrender = {
   render_vars: function(test) {
     begin(test, 'render_vars')
-      .assert('vars.html', 'should render simple variable')
-      .assert('fn.html', 'should render fn result')
+      .assert('render_vars.html', 'should render simple variable')
+      .assert('render_fn.html', 'should render fn result')
       .done();    
   },
   include: function(test) {
     begin(test, 'include')
       .assert('include_flat.html', 'should include the file in the same directory')
+      .assert('include_relative.html', 'should include the file from partials directory')
+      .assert('include_multiple.html', 'should include multiple partials')
+      .done();    
+  },
+  include_nested: function(test) {
+    begin(test, 'include_nested')
+      .assert('nested_partials.html', 'should include partials that include other partials')
       .done();    
   }
 };
