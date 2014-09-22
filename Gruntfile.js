@@ -62,7 +62,8 @@ module.exports = function(grunt) {
           vars: {}
         },
         files: {
-          'tmp/include_nested/nested_partials.html': 'test/fixtures/include_nested/nested_partials.html'
+          'tmp/include_nested/nested_partials.html': 'test/fixtures/include_nested/nested_partials.html',
+          'tmp/include_nested/include_back.html': 'test/fixtures/include_nested/include_back.html'
         }
       }
     },

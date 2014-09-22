@@ -54,6 +54,7 @@ exports.htmlrender = {
   include_nested: function(test) {
     begin(test, 'include_nested')
       .assert('nested_partials.html', 'should include partials that include other partials')
+      .assert('include_back.html', 'should include partials that are relative')
       .done();    
   }
 };
