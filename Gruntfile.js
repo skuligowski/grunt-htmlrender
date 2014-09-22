@@ -42,7 +42,8 @@ module.exports = function(grunt) {
         },
         files: {
           'tmp/render_vars/render_vars.html': 'test/fixtures/render_vars/render_vars.html',
-          'tmp/render_vars/render_fn.html': 'test/fixtures/render_vars/render_fn.html'
+          'tmp/render_vars/render_fn.html': 'test/fixtures/render_vars/render_fn.html',
+          'tmp/render_vars/render_in_partials.html': 'test/fixtures/render_vars/render_in_partials.html'
         }
       },
       include: {
