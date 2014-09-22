@@ -30,25 +30,28 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     htmlrender: {
-      default_options: {
+      render_vars: {
         options: {
-          src: ['test/**/*.html'],
+          src: ['test/fixtures/render_vars/**/*.html'],
           vars: {
-            one: 'Test12',
-            fn: function() { return 'some'; }
+            myVar: 'OK var',
+            myVarFn: function() {
+              return 'OK function';
+            }
           }
         },
         files: {
-          'dist/index.html': 'test/a.html'
+          'tmp/render_vars/vars.html': 'test/fixtures/render_vars/vars.html',
+          'tmp/render_vars/fn.html': 'test/fixtures/render_vars/fn.html'
         }
       },
-      custom_options: {
+      include: {
         options: {
-          separator: ': ',
-          punctuation: ' !!!'
+          src: ['test/fixtures/include/**/*.html'],
+          vars: {}
         },
         files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
+          'tmp/include/include_flat.html': 'test/fixtures/include/include_flat.html'
         }
       }
     },
