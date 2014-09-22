@@ -37,13 +37,16 @@ module.exports = function(grunt) {
             myVar: 'OK var',
             myVarFn: function() {
               return 'OK function';
-            }
+            },
+            myPartial2: 'partial2',
+            myPartial3: 'partial3'
           }
         },
         files: {
           'tmp/render_vars/render_vars.html': 'test/fixtures/render_vars/render_vars.html',
           'tmp/render_vars/render_fn.html': 'test/fixtures/render_vars/render_fn.html',
-          'tmp/render_vars/render_in_partials.html': 'test/fixtures/render_vars/render_in_partials.html'
+          'tmp/render_vars/render_in_partials.html': 'test/fixtures/render_vars/render_in_partials.html',
+          'tmp/render_vars/var_in_include.html': 'test/fixtures/render_vars/var_in_include.html'
         }
       },
       include: {

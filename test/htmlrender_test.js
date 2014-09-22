@@ -43,6 +43,7 @@ exports.htmlrender = {
       .assert('render_vars.html', 'should render simple variable')
       .assert('render_fn.html', 'should render fn result')
       .assert('render_in_partials.html', 'should render simple variable in partial')
+      .assert('var_in_include.html', 'should render var before executing include statement')
       .done();    
   },
   include: function(test) {
