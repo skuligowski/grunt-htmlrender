@@ -82,6 +82,15 @@ module.exports = function(grunt) {
             dest: 'tmp/render_multiple',
             ext: '.html'
         }]
+      },
+      angular_template: {
+        options: {
+          src: ['test/fixtures/angular_template/**/*.html'],
+          vars: {}
+        },
+        files: {
+          'tmp/angular_template/angular_template.html': 'test/fixtures/angular_template/angular_template.html'
+        }
       }
     },
 

@@ -64,5 +64,11 @@ exports.htmlrender = {
       .assert('index1.html', 'one of two files that should be generated')
       .assert('index2.html', 'the second of two files that should be generated')
       .done();    
+  },
+  angular_template: function(test) {
+    begin(test, 'angular_template')
+      .assert('angular_template.html', 'should generate script tag with proper id and type')
+      .done();    
   }
+
 };
