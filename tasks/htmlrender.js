@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 
   var fs = require('fs'),
       path = require('path'),
-      _ = require('lodash-node');
+      _ = require('lodash');
   
   var varsCache = {},
       partialsCache = {},
